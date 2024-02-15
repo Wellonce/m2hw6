@@ -5,7 +5,7 @@ from apps.shared.models import AbstractModel
 
 
 class User(AbstractUser):
-    avatar = ImageField(upload_to="users/avatar/%Y/%m/%d")
+    avatar = ImageField(upload_to="users/avatar/%Y/%m/%d", default = 'static/image/default.jpg')
     middle_name = CharField(max_length=128)
 
 

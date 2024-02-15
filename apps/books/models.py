@@ -22,7 +22,7 @@ class Book(AbstractModel):
     isbn = CharField(max_length=128,unique=True)
     language = CharField(max_length=7, choices=LanguageChoice.choices, default=LanguageChoice.ENGLISH)
     page = IntegerField()
-    cover = ImageField(upload_to="books/cover/%Y/%m/%d")
+    cover = ImageField(upload_to="books/cover/%Y/%m/%d", default='static/image/default.jpg')
     genre = ManyToManyField("books.BookGenre","books")
     authors = ManyToManyField("books.BookAuthor", "books")
 
@@ -32,7 +32,7 @@ class BookAuthor(AbstractModel):
     last_name = CharField(max_length=56)
     birthdate = DateField()
     website = URLField()
-    avatar = ImageField(upload_to="authors/avatar/%Y/%m/%d")
+    avatar = ImageField(upload_to="authors/avatar/%Y/%m/%d", default ='static/image/default.jpg')
     about = TextField()
 
 
